@@ -1,0 +1,67 @@
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.wrapper--title {
+  text-align: center;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 38px;
+}
+
+.wrapper .wrapper--form {
+  margin-top: 70px;
+}
+
+.input__mt {
+  display: block;
+  margin-top: 70px;
+}
+
+.input__mb {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.wrapper .wrapper--button {
+  display: block;
+  margin-top: 45px;
+  text-align: center;
+}
+
+.wrapper .wrapper--form--text {
+  text-align: right;
+  cursor: pointer;
+}
+
+.container {
+  width: 300px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .container--label {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  color: var(--bg-text);
+}
+
+.container .container--input {
+  height: 50px;
+  margin-top: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+  border: solid 1px #2D0B0B;
+  font-size: 24px;
+}
+
+.container .container--input:focus {
+  outline: none;
+}

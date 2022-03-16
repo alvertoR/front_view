@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <h1 class="wrapper--title">View</h1>
+  <form
+    class="wrapper--form"
+    (ngSubmit)="onSave()"
+    [formGroup]="form"
+  >
+    <div class="container input__mt input__mb">
+      <label class="container--label" [for]="inputEmail">Correo</label>
+      <input
+        class="container--input"
+        [type]="inputEmail"
+        [id]="inputEmail"
+        formControlName="email"
+      />
+      <p
+        *ngIf="isEmailInvalid"
+      >Este campos es requerido</p>
+    </div>
+    <div class="container input__mb">
+      <label class="container--label" [for]="inputText">Nick name</label>
+      <input
+        class="container--input"
+        [type]="inputText"
+        [id]="inputText"
+        formControlName="nick"
+      />
+      <p
+        *ngIf="isNickNameInvalid"
+      >Este campos es requerido</p>
+    </div>
+    <div class="container">
+      <label class="container--label" [for]="inputPassword">Contraseña</label>
+      <input
+        class="container--input"
+        [type]="inputPassword"
+        [id]="inputPassword"
+        formControlName="password"
+      />
+      <p
+        *ngIf="isPasswordInvalid"
+      >Este campos es requerido</p>
+    </div>
+    <p
+      [routerLink]="['/log-in']"
+      class="wrapper--form--text input__mb">ya tengo cuenta</p>
+    <app-button
+      class="wrapper--button"
+      [text]="contentButton"
+      [type]="typeButton"
+    ></app-button>
+  </form>
+</div>

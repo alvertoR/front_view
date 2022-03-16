@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Keep me updated 🤦.
 
+## 2022-03-15
+
+### Added
+
+- view login, home, sigin, forgot password and change password in log-out module
+
+## 2022-03-09
+
+### Added
+
+- components input and button in shared module
+- base styles and reset styles by default
+
 ## 2022-03-08
 
 ### Added

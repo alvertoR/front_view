@@ -1,0 +1,31 @@
+.wrapper {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.wrapper--title {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 38px;
+  margin-top: 40px;
+}
+
+.wrapper--texts {
+  margin-top: 135px;
+}
+
+.wrapper--text {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 35px;
+}
+
+.wrapper .wrapper--button {
+  display: block;
+  margin-top: 135px;
+}
