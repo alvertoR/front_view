@@ -14,6 +14,8 @@ export class ChangePasswordComponent implements OnInit {
   public contentButton: string = 'Actualizar';
   public typeButton: string = 'button';
   public inputPassword: string = 'password';
+  public serveError: boolean = false;
+
 
   public newPassword = new FormControl('', [Validators.required]);
 
@@ -37,5 +39,4 @@ export class ChangePasswordComponent implements OnInit {
       this.newPassword.markAllAsTouched();
     }
   }
-
 }

@@ -33,6 +33,9 @@
     <p
       [routerLink]="['/forgot-password']"
       class="wrapper--form--text input__mb">olvidé mi contraseña</p>
+    <p
+      *ngIf="serveError"
+      class="wrapper--form-error">correo y/o contraseña incorrectos</p>
     <app-button
       class="wrapper--button"
       [text]="contentButton"

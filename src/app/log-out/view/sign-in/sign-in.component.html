@@ -16,6 +16,9 @@
       <p
         *ngIf="isEmailInvalid"
       >Este campos es requerido</p>
+      <p
+        *ngIf="errorServe"
+      >Este correo ya existe</p>
     </div>
     <div class="container input__mb">
       <label class="container--label" [for]="inputText">Nick name</label>
@@ -28,6 +31,9 @@
       <p
         *ngIf="isNickNameInvalid"
       >Este campos es requerido</p>
+      <p
+        *ngIf="errorServe"
+      >Este nick ya existe</p>
     </div>
     <div class="container">
       <label class="container--label" [for]="inputPassword">Contraseña</label>

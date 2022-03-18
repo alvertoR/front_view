@@ -5,6 +5,8 @@ import {
   FormGroup,
   AbstractControl
 } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LoginDTO } from 'src/app/typings';
 
 @Component({
   selector: 'app-log-in',
@@ -17,10 +19,12 @@ export class LogInComponent implements OnInit {
   public inputEmail: string = 'email';
   public contentButton: string = 'Iniciar sesión';
   public typeButton: string = 'submit';
+  public serveError: boolean = false;
 
   public form!: FormGroup;
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.buildForm();
   }
@@ -51,10 +55,27 @@ export class LogInComponent implements OnInit {
     return this.passwordFielForm?.invalid && this.passwordFielForm.touched;
   }
 
-  onSave() {
+  async onSave() {
+    this.serveError = false;
     if(this.form.valid){
-      console.log('do something');
-      console.log('yuki form: ', this.form);
+      const data = {
+        email: this.form.value.email,
+        password: this.form.value.password
+      } as LoginDTO;
+
+      try{
+        const response = await this.authService.login(data);
+        const token = response.data.token;
+        //Set token in cookie
+        console.log(token);
+        this.form.reset();
+      }catch(error){
+        this.serveError = true;
+        const time = setTimeout(() => {
+          this.serveError = false;
+          clearTimeout(time);
+        }, 3000);
+      }
     } else {
       this.form.markAllAsTouched();
     }

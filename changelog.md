@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Keep me updated 🤦.
 
+## 2022-03-17
+
+### Added
+
+- auth and user services
+- methods for login and send email for recovery password in auth service
+- methods for create user in user service
+- forgot password, log in and sign view finished
+
 ## 2022-03-15
 
 ### Added

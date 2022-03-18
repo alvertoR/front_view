@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [],
@@ -9,7 +10,8 @@ import { UserService } from './services/user/user.service';
     CommonModule
   ],
   providers: [
-    UserService
+    UserService,
+    AuthService
   ]
 })
 export class CoreModule { }

@@ -5,6 +5,9 @@ import {
   FormGroup,
   AbstractControl
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/core/services/user/user.service';
+import { NewUserDTO } from 'src/app/typings';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,10 +20,13 @@ export class SignInComponent implements OnInit {
   public inputEmail: string = 'email';
   public contentButton: string = 'Registrarse';
   public typeButton: string = 'submit';
+  public errorServe: boolean = false;
 
   public form!: FormGroup;
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router
   ) {
     this.buildForm();
   }
@@ -60,10 +66,25 @@ export class SignInComponent implements OnInit {
     return this.passwordFielForm?.invalid && this.passwordFielForm.touched;
   }
 
-  onSave() {
+  async onSave() {
     if(this.form.valid){
-      console.log('do something');
-      console.log('yuki form: ', this.form);
+      const data = {
+        email: this.form.value.email,
+        nick: this.form.value.nick,
+        password: this.form.value.password
+      } as NewUserDTO;
+
+      try{
+        await this.userService.create(data);
+        this.form.reset();
+        this.router.navigate(['log-in']);
+      }catch(error){
+        this.errorServe = true;
+        const time = setTimeout(() => {
+          this.errorServe = false;
+          clearTimeout(time);
+        }, 3000);
+      }
     } else {
       this.form.markAllAsTouched();
     }
